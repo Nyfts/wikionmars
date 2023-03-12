@@ -1,5 +1,5 @@
-import BadCredentialsError from "../errors/BadCredentialsError";
-import ValidationError from "../errors/ValidationError";
+import BadCredentialsError from "../../errors/BadCredentialsError";
+import ValidationError from "../../errors/ValidationError";
 
 interface Credentials {
   username: string;

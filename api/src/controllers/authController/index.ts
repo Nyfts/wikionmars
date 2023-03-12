@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction, Send } from 'express';
-import authService from '../services/authService';
-import responseService from '../services/responseService';
+import authService from '../../services/authService';
+import responseService from '../../services/responseService';
 
 interface Credentials {
   username: string;
