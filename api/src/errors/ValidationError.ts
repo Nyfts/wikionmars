@@ -1,0 +1,5 @@
+import { RuntimeError } from "./RuntimeError";
+
+export default class ValidationError extends RuntimeError {
+  statusCode = 400;
+}
