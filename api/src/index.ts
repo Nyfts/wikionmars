@@ -1,8 +1,10 @@
 import http from 'http';
 import express from 'express';
 import morgan from 'morgan';
-import routes from './routes/auth';
+import routes from './routes';
 import errorHandlerMiddleware from './middleware/errorHandlerMiddleware';
+import corsMiddleware from './middleware/corsMiddleware';
+import NotFoundError from './errors/NotFoundError';
 
 const app = express();
 
@@ -13,18 +15,16 @@ app.use(express.urlencoded({ extended: false }));
 /** Takes care of JSON data */
 app.use(express.json());
 
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Headers', 'origin, X-Requested-With,Content-Type,Accept, Authorization');
-  if (req.method === 'OPTIONS') {
-    res.header('Access-Control-Allow-Methods', 'GET PATCH DELETE POST');
-    return res.status(200).json({});
-  }
-  next();
-});
+// Cors settings
+app.use(corsMiddleware);
 
 /** Routes */
 app.use('/api/v1', routes);
+
+// Every other route
+app.use((req, res, next) => {
+  next(new NotFoundError());
+})
 
 /** Error handling */
 app.use(errorHandlerMiddleware);

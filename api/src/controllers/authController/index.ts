@@ -11,11 +11,6 @@ interface TypedRequest<T> extends Request {
   body: T
 }
 
-interface ResponseTO<T> {
-  data?: T,
-  errors: String[]
-}
-
 const authenticate = async (req: TypedRequest<Credentials>, res: Response, next: NextFunction) => {
   try {
     return responseService.ok(await authService.authenticate(req.body), res);
