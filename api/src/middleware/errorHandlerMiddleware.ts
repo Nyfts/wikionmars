@@ -1,20 +1,22 @@
 import { NextFunction, Request, Response } from "express"
-import { RuntimeError } from "../errors/RuntimeError";
+import RuntimeError from "../errors/RuntimeError";
+import ErrorResponseTO from "../interfaces/ErrorResponseTO";
+import ResponseTO from "../interfaces/ResponseTO";
 
-interface ErrorResponse {
-  statusCode: number,
-  timestamp: Date,
-  message: string
-}
 
 const errorHandlerMiddleware = (err: RuntimeError, req: Request, res: Response, next: NextFunction) => {
-  const errorResponse: ErrorResponse = {
-    statusCode: err.statusCode ?? 500,
-    timestamp: new Date(),
-    message: err.message
+  const response: ResponseTO<null> = {
+    data: null,
+    errors: err.errors.map(function(e): ErrorResponseTO {
+      return {
+        name: e.name,
+        message: e.message
+      }
+    }),
+    timestamp: new Date()
   }
 
-  res.status(errorResponse.statusCode).json(errorResponse);
+  res.status(err.statusCode).json(response);
 }
 
 export default errorHandlerMiddleware;

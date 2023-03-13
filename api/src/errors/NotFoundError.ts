@@ -1,9 +1,10 @@
-import { RuntimeError } from "./RuntimeError";
+import RuntimeError from "./RuntimeError";
 
 export default class NotFoundError extends RuntimeError {
   statusCode = 404;
+  name = 'NotFoundError';
 
   constructor() {
-    super("Not Found.");
+    super('Resource not found');
   }
 }

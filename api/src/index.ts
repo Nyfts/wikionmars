@@ -19,7 +19,7 @@ app.use(express.json());
 app.use(corsMiddleware);
 
 /** Routes */
-app.use('/api/v1', routes);
+app.use('/api/v1', routes)
 
 // Every other route
 app.use((req, res, next) => {
