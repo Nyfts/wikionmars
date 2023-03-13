@@ -13,4 +13,3 @@ const validationMiddleware = (req: Request, res: Response, next: NextFunction) =
 }
 
 export default validationMiddleware;
-
