@@ -1,6 +1,6 @@
 import { Response, NextFunction } from "express";
-import UserCreateTO from "../../../model/dtos/user/UserCreateTO";
-import TypedRequest from "../../../model/interfaces/TypedRequest";
+import UserCreateTO from "../../../presentation/dtos/user/UserCreateTO";
+import TypedRequest from "../../../presentation/interfaces/TypedRequest";
 import responseService from "../../services/responseService";
 import userService from "../../services/userService";
 

@@ -1,6 +1,6 @@
 import { Response, NextFunction } from 'express';
-import AuthenticateParams from '../../../model/dtos/auth/AuthenticateParams';
-import TypedRequest from '../../../model/interfaces/TypedRequest';
+import AuthenticateParams from '../../../presentation/dtos/auth/AuthenticateParams';
+import TypedRequest from '../../../presentation/interfaces/TypedRequest';
 import authService from '../../services/authService';
 import responseService from '../../services/responseService';
 

@@ -1,5 +1,5 @@
 import http from 'http';
-import express from 'express';
+import express, { NextFunction, Request, Response } from 'express';
 import morgan from 'morgan';
 import routes from './application/routes';
 import NotFoundError from './application/errors/NotFoundError';
@@ -22,7 +22,7 @@ app.use(corsMiddleware);
 app.use('/api/v1', routes)
 
 // Every other route
-app.use((req, res, next) => {
+app.use((req: Request, res: Response, next: NextFunction) => {
   next(new NotFoundError());
 })
 
@@ -31,5 +31,5 @@ app.use(errorHandlerMiddleware);
 
 /** Server */
 const httpServer = http.createServer(app);
-const PORT: any = process.env.PORT ?? 8080;
+const PORT = process.env.PORT ?? 8080;
 httpServer.listen(PORT, () => console.log(`The server is running on port ${PORT}`));

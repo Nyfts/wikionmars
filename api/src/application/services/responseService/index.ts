@@ -1,5 +1,5 @@
 import { Response } from "express"
-import ResponseTO from "../../../model/interfaces/ResponseTO";
+import ResponseTO from "../../../presentation/interfaces/ResponseTO";
 
 function ok<T>(data: T, res: Response) {
   const response: ResponseTO<T> = {

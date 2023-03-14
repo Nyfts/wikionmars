@@ -6,7 +6,7 @@ interface Credentials {
   password: string;
 }
 
-const authenticate = async (credentials: Credentials): Promise<String> => {
+const authenticate = async (credentials: Credentials): Promise<string> => {
   const {username, password} = credentials;
 
   if (username !== 'admin' || password !== 'admin') {
