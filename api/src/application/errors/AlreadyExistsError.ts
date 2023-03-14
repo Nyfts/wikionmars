@@ -1,4 +1,4 @@
-import RuntimeError from "./RuntimeError";
+import RuntimeError from './RuntimeError';
 
 export default class AlreadyExistsError extends RuntimeError {
   statusCode = 409;

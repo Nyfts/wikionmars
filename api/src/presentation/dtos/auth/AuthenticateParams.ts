@@ -1,4 +1,6 @@
-export default interface AuthenticateParams {
+interface AuthenticateParams {
   username: string;
   password: string;
 }
+
+export default AuthenticateParams;

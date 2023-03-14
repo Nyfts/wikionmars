@@ -1,8 +1,8 @@
-import { Response, NextFunction } from "express";
-import UserCreateTO from "../../../presentation/dtos/user/UserCreateTO";
-import TypedRequest from "../../../presentation/interfaces/TypedRequest";
-import responseService from "../../services/responseService";
-import userService from "../../services/userService";
+import type { Response, NextFunction } from 'express';
+import type UserCreateTO from '@presentation/dtos/user/UserCreateTO';
+import type TypedRequest from '@presentation/interfaces/TypedRequest';
+import responseService from '@application/services/responseService';
+import userService from '@application/services/userService';
 
 export const getFindAll = async (req: TypedRequest<string>, res: Response, next: NextFunction) => {
   try {

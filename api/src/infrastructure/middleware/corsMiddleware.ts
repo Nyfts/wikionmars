@@ -1,4 +1,4 @@
-import { NextFunction, Request, Response } from "express";
+import type { NextFunction, Request, Response } from 'express';
 
 const corsMiddleware = (req: Request, res: Response, next: NextFunction) => {
   res.header('Access-Control-Allow-Origin', '*');
@@ -8,7 +8,7 @@ const corsMiddleware = (req: Request, res: Response, next: NextFunction) => {
     return res.status(200).json({});
   }
   next();
-}
+};
 
 export default corsMiddleware;
 

@@ -1,7 +1,9 @@
-import ErrorResponseTO from "./ErrorResponseTO";
+import type ErrorResponseTO from './ErrorResponseTO';
 
-export default interface ResponseTO<T> {
+interface ResponseTO<T> {
   data: T,
   errors: ErrorResponseTO[],
   timestamp: Date
 }
+
+export default ResponseTO;

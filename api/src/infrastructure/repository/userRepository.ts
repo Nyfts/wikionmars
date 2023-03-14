@@ -1,10 +1,11 @@
-import { PrismaClient, User } from '@prisma/client'
+import type { User } from '@prisma/client';
+import { PrismaClient } from '@prisma/client';
 import { PrismaClientKnownRequestError } from '@prisma/client/runtime/library';
-import RuntimeError from '../../application/errors/RuntimeError';
-import UserCreateTO from '../../presentation/dtos/user/UserCreateTO';
-import { PrismaErrors } from '../../presentation/enums/PrismaErrorsConstraints';
+import RuntimeError from '@application/errors/RuntimeError';
+import type UserCreateTO from '@presentation/dtos/user/UserCreateTO';
+import { PrismaErrors } from '@presentation/enums/PrismaErrorsConstraints';
 
-const prisma = new PrismaClient()
+const prisma = new PrismaClient();
 
 async function findByUsernameOrEmail(username: string, email: string): Promise<User | null> {
   return await prisma.user.findFirst({

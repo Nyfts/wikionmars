@@ -1,7 +1,7 @@
 import express from 'express';
-import validationMiddleware from '../../infrastructure/middleware/validationMiddleware';
-import { getFindAll, getFindOne, postCreate, putUpdate } from '../controllers/userController';
-import schema from '../controllers/userController/schema';
+import validationMiddleware from '@infrastructure/middleware/validationMiddleware';
+import { getFindAll, getFindOne, postCreate, putUpdate } from '@application/controllers/userController';
+import schema from '@application/controllers/userController/schema';
 
 const userRouter = express.Router();
 

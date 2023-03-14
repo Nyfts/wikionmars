@@ -1,8 +1,8 @@
-import { Response, NextFunction } from 'express';
-import AuthenticateParams from '../../../presentation/dtos/auth/AuthenticateParams';
-import TypedRequest from '../../../presentation/interfaces/TypedRequest';
-import authService from '../../services/authService';
-import responseService from '../../services/responseService';
+import type { Response, NextFunction } from 'express';
+import type AuthenticateParams from '@presentation/dtos/auth/AuthenticateParams';
+import type TypedRequest from '@presentation/interfaces/TypedRequest';
+import authService from '@application/services/authService';
+import responseService from '@application/services/responseService';
 
 export const authenticate = async (req: TypedRequest<AuthenticateParams>, res: Response, next: NextFunction) => {
   try {

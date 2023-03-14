@@ -1,6 +1,6 @@
-import { UserRoles } from "../../enums/UserRoles";
+import type { UserRoles } from '@presentation/enums/UserRoles';
 
-export default interface UserCreateTO {
+interface UserCreateTO {
   name: string;
   username: string;
   password: string;
@@ -8,3 +8,5 @@ export default interface UserCreateTO {
   role: UserRoles;
   active: boolean;
 }
+
+export default UserCreateTO;

@@ -1,10 +1,11 @@
 import http from 'http';
-import express, { NextFunction, Request, Response } from 'express';
+import type { NextFunction, Request, Response } from 'express';
+import express from 'express';
 import morgan from 'morgan';
-import routes from './application/routes';
-import NotFoundError from './application/errors/NotFoundError';
-import corsMiddleware from './infrastructure/middleware/corsMiddleware';
-import errorHandlerMiddleware from './infrastructure/middleware/errorHandlerMiddleware';
+import routes from '@application/routes';
+import NotFoundError from '@application/errors/NotFoundError';
+import corsMiddleware from '@infrastructure/middleware/corsMiddleware';
+import errorHandlerMiddleware from '@infrastructure/middleware/errorHandlerMiddleware';
 
 const app = express();
 
@@ -19,12 +20,12 @@ app.use(express.json());
 app.use(corsMiddleware);
 
 /** Routes */
-app.use('/api/v1', routes)
+app.use('/api/v1', routes);
 
 // Every other route
 app.use((req: Request, res: Response, next: NextFunction) => {
   next(new NotFoundError());
-})
+});
 
 /** Error handling */
 app.use(errorHandlerMiddleware);

@@ -1,4 +1,4 @@
-import RuntimeError from "./RuntimeError";
+import RuntimeError from './RuntimeError';
 
 export default class NotFoundError extends RuntimeError {
   statusCode = 404;

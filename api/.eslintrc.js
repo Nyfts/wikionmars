@@ -26,7 +26,18 @@ module.exports = {
                 "avoidEscape": true,
                 "allowTemplateLiterals": true
             }
-        ]
+        ],
+        "@typescript-eslint/no-extra-semi": 0,
+        "eol-last": 2,
+        "no-trailing-spaces": 2,
+        "arrow-body-style": ["error", "as-needed"],
+        "@typescript-eslint/consistent-type-imports": 2,
+        "no-restricted-imports": [
+            "error",
+            {
+                "patterns": ["../"]
+            }
+        ],
     },
 
 }

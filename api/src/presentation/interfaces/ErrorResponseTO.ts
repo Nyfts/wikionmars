@@ -1,4 +1,6 @@
-export default interface ErrorResponseTO {
+interface ErrorResponseTO {
   name: string;
   message: string;
 }
+
+export default ErrorResponseTO;
