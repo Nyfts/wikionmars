@@ -8,7 +8,7 @@ const errorHandlerMiddleware = (err: RuntimeError, req: Request, res: Response, 
     data: null,
     errors: [{
       name: err.name,
-      message: err.message
+      message: err.message || 'Unexpected error'
     }],
     timestamp: new Date()
   }
@@ -22,7 +22,7 @@ const errorHandlerMiddleware = (err: RuntimeError, req: Request, res: Response, 
     });
   }
 
-  res.status(err.statusCode).json(response);
+  res.status(err.statusCode || 500).json(response);
 }
 
 export default errorHandlerMiddleware;

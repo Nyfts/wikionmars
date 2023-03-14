@@ -22,7 +22,7 @@ export const getFindOne = async (req: TypedRequest<string>, res: Response, next:
 
 export const postCreate = async (req: TypedRequest<UserCreateTO>, res: Response, next: NextFunction) => {
   try {
-    return responseService.ok(userService.create(req.body), res);
+    return responseService.ok(await userService.create(req.body), res);
   } catch (error) {
     next(error);
   }
