@@ -1,8 +1,7 @@
 import { NextFunction, Request, Response } from "express"
-import RuntimeError from "../errors/RuntimeError";
-import ErrorResponseTO from "../interfaces/ErrorResponseTO";
-import ResponseTO from "../interfaces/ResponseTO";
-
+import RuntimeError from "../../application/errors/RuntimeError";
+import ErrorResponseTO from "../../model/interfaces/ErrorResponseTO";
+import ResponseTO from "../../model/interfaces/ResponseTO";
 
 const errorHandlerMiddleware = (err: RuntimeError, req: Request, res: Response, next: NextFunction) => {
   const response: ResponseTO<null> = {

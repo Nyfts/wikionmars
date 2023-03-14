@@ -1,5 +1,6 @@
 import BadCredentialsError from "../../errors/BadCredentialsError";
 
+
 interface Credentials {
   username: string;
   password: string;
