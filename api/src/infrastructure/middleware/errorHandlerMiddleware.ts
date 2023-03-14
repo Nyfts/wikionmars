@@ -1,9 +1,10 @@
-import type { Request, Response } from 'express';
+import type { NextFunction, Request, Response } from 'express';
 import type RuntimeError from '@application/errors/RuntimeError';
 import type ErrorResponseTO from '@presentation/interfaces/ErrorResponseTO';
 import type ResponseTO from '@presentation/interfaces/ResponseTO';
 
-const errorHandlerMiddleware = (err: RuntimeError, req: Request, res: Response) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const errorHandlerMiddleware = (err: RuntimeError, req: Request, res: Response, next: NextFunction) => {
   const response: ResponseTO<null> = {
     data: null,
     errors: [{
@@ -13,7 +14,7 @@ const errorHandlerMiddleware = (err: RuntimeError, req: Request, res: Response) 
     timestamp: new Date()
   };
 
-  if (err.errors) {
+  if (err.errors.length > 0) {
     response.errors = err.errors.map(function(e): ErrorResponseTO {
       return {
         name: e.name,
